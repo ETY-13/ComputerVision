@@ -63,6 +63,9 @@ val_set = validating.flow_from_directory("data/validation",target_size=((128,128
 x_train,y_train = train_set.next()
 x_val, y_val = val_set.next()
 
+#plt.imshow(x_train[63])  # plot the image
+#plt.show()              # show the image
+
 x_train = x_train.reshape(x_train.shape[0],128,128,3)
 x_val = x_val.reshape(x_val.shape[0],128,128,3)
 
@@ -76,8 +79,6 @@ print(classes)
 
 net = net_model()
 net.fit(x_train, y_train, validation_data = (x_val, y_val),nb_epoch=20,batch_size=10)
-
 score = net.evaluate(x_val,y_val,verbose = 0)
 
 print("Evaluation score:",score[1] *100.0)
-
