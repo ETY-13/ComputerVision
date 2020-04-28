@@ -1,14 +1,9 @@
 
 # Theng Yang
-# neuroNet.py
+# bin_neuroNet.py
 
-# Contain a broad template of neural network
-# that can be the base of neural network related
-# project
-
-# The following network is trained to recognize hand-draw
-# arrow. Change data training set by chaning data located
-# in the data/train and data/validation directory. 
+# use neural network template
+# to train a binary neural network.
 
 from keras.models import Sequential
 from keras.layers import Dense
@@ -71,5 +66,3 @@ net.fit(x_train, y_train, validation_data = (x_val, y_val),nb_epoch=10,batch_siz
 score = net.evaluate(x_val,y_val,verbose = 0)
 
 print("Evaluation score:",score[1] *100.0)
-
-save(net,"binet")
